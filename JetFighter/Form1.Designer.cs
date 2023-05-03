@@ -60,7 +60,7 @@
             Jet.SizeMode = PictureBoxSizeMode.StretchImage;
             Jet.TabIndex = 0;
             Jet.TabStop = false;
-            Jet.KeyDown += Jet_KeyDown;
+            Jet.KeyDown += Form1_KeyDown;
             Jet.Click += Jet_Click;
             // 
             // Building1
@@ -72,7 +72,7 @@
             Building1.SizeMode = PictureBoxSizeMode.StretchImage;
             Building1.TabIndex = 0;
             Building1.TabStop = false;
-            Building1.KeyDown += Jet_KeyDown;
+            Building1.KeyDown += Form1_KeyDown;
             Building1.Click += Jet_Click;
             // 
             // Building2
@@ -84,7 +84,7 @@
             Building2.SizeMode = PictureBoxSizeMode.StretchImage;
             Building2.TabIndex = 0;
             Building2.TabStop = false;
-            Building2.KeyDown += Jet_KeyDown;
+            Building2.KeyDown += Form1_KeyDown;
             Building2.Click += Jet_Click;
             // 
             // Building3
@@ -96,7 +96,7 @@
             Building3.SizeMode = PictureBoxSizeMode.StretchImage;
             Building3.TabIndex = 0;
             Building3.TabStop = false;
-            Building3.KeyDown += Jet_KeyDown;
+            Building3.KeyDown += Form1_KeyDown;
             Building3.Click += Jet_Click;
             // 
             // gameover
@@ -120,7 +120,7 @@
             coin3.SizeMode = PictureBoxSizeMode.StretchImage;
             coin3.TabIndex = 0;
             coin3.TabStop = false;
-            coin3.KeyDown += Jet_KeyDown;
+            coin3.KeyDown += Form1_KeyDown;
             coin3.Click += Jet_Click;
             // 
             // coin4
@@ -132,7 +132,7 @@
             coin4.SizeMode = PictureBoxSizeMode.StretchImage;
             coin4.TabIndex = 0;
             coin4.TabStop = false;
-            coin4.KeyDown += Jet_KeyDown;
+            coin4.KeyDown += Form1_KeyDown;
             coin4.Click += Jet_Click;
             // 
             // coin1
@@ -144,7 +144,7 @@
             coin1.SizeMode = PictureBoxSizeMode.StretchImage;
             coin1.TabIndex = 0;
             coin1.TabStop = false;
-            coin1.KeyDown += Jet_KeyDown;
+            coin1.KeyDown += Form1_KeyDown;
             coin1.Click += Jet_Click;
             // 
             // coin2
@@ -156,7 +156,7 @@
             coin2.SizeMode = PictureBoxSizeMode.StretchImage;
             coin2.TabIndex = 0;
             coin2.TabStop = false;
-            coin2.KeyDown += Jet_KeyDown;
+            coin2.KeyDown += Form1_KeyDown;
             coin2.Click += Jet_Click;
             // 
             // label1
@@ -194,6 +194,7 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            KeyDown += Form1_KeyDown;
             ((System.ComponentModel.ISupportInitialize)Jet).EndInit();
             ((System.ComponentModel.ISupportInitialize)Building1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Building2).EndInit();

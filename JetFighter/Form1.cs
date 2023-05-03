@@ -30,7 +30,7 @@ namespace JetFighter
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Building(gamespeed);
+            Building(5);
             over();
             coins(gamespeed);
             coinscollection();
@@ -43,14 +43,13 @@ namespace JetFighter
         void Building(int speed)
         {
             if (Building1.Top >= 500)
-            {
-                x = r.Next(0, 200);
+            { x = r.Next(0, 200);
 
-                Building1.Location = new Point(x, 0);
+            Building1.Location = new Point(x, 0);
             }
             else
             {
-                Building1.Top += speed;
+                Building2.Top += speed;
             }
             if (Building2.Top >= 500)
             {
@@ -177,21 +176,17 @@ namespace JetFighter
         }
 
         int gamespeed = 0;
-        private void Jet_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
                 if (Jet.Left > 0)
-                {
-                    Jet.Left += -gamespeed;
-                }
+                Jet.Left += -8;
             }
             if (e.KeyCode == Keys.Right)
             {
-                if (Jet.Right > 380)
-                {
-                    Jet.Left += gamespeed;
-                }
+                if (Jet.Right < 380)
+                Jet.Left += 8;
             }
             if (e.KeyCode == Keys.Up)
             {
@@ -203,6 +198,7 @@ namespace JetFighter
                 if (gamespeed > 0)
                 { gamespeed--; }
             }
+            coinscollection();
         }
     }
 }
