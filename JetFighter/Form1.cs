@@ -12,15 +12,28 @@ namespace JetFighter
 {
     public partial class Form1 : Form
     {
+        public const int NumberOfCoins = 4;
+        public const int NumberOfBuildings = 3;
+
+        public PictureBox[] Coins = new PictureBox[NumberOfCoins];
+        public PictureBox[] Buildings = new PictureBox[NumberOfBuildings];
         public Form1()
         {
             InitializeComponent();
             gameover.Visible = false;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Coins[0] = coin1;
+            Coins[1] = coin2;
+            Coins[2] = coin3;
+            Coins[3] = coin4;
 
+            Buildings[0] = Building1;
+            Buildings[1] = Building2;
+            Buildings[2] = Building3;
         }
 
         private void Jet_Click(object sender, EventArgs e)
@@ -30,94 +43,53 @@ namespace JetFighter
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Building(5);
-            over();
-            coins(gamespeed);
-            coinscollection();
+
         }
 
         int collectedcoin = 0;
 
         Random r = new Random();
         int x, y;
+        /// <summary>
+        /// If the top of the building is greater than 500 then
+        /// the building will be relocated to a random x position
+        /// at the top of the form.
+        /// </summary>
+        /// <param name="speed"></param>
         void Building(int speed)
         {
-            if (Building1.Top >= 500)
-            { x = r.Next(0, 200);
+            foreach (var building in Buildings)
+            {
+                if (building.Top >= Height)
+                {
+                    x = r.Next(0, 200);
 
-            Building1.Location = new Point(x, 0);
-            }
-            else
-            {
-                Building2.Top += speed;
-            }
-            if (Building2.Top >= 500)
-            {
-                x = r.Next(0, 400);
-
-                Building2.Location = new Point(x, 0);
-            }
-            else
-            {
-                Building2.Top += speed;
-            }
-            if (Building3.Top >= 500)
-            {
-                x = r.Next(200, 350);
-
-                Building3.Location = new Point(x, 0);
-            }
-            else
-            {
-                Building3.Top += speed;
+                    building.Location = new Point(x, 0);
+                }
+                else
+                {
+                    building.Top += speed;
+                }
             }
         }
 
 
 
-        void coins(int speed)
+        void MoveCoin(int speed)
         {
-            if (coin1.Top >= 500)
+            foreach (var coin in Coins)
             {
-                x = r.Next(0, 200);
+                if (coin.Top >= Height)
+                {
+                    x = r.Next(0, 200);
 
-                coin1.Location = new Point(x, 0);
+                    coin.Location = new Point(x, 0);
+                }
+                else
+                {
+                    coin.Top += speed;
+                }
             }
-            else
-            {
-                coin1.Top += speed;
-            }
-            if (coin2.Top >= 500)
-            {
-                x = r.Next(0, 200);
-
-                coin2.Location = new Point(x, 0);
-            }
-            else
-            {
-                coin2.Top += speed;
-            }
-            if (coin3.Top >= 500)
-            {
-                x = r.Next(50, 300);
-
-                coin3.Location = new Point(x, 0);
-            }
-            else
-            {
-                coin3.Top += speed;
-            }
-            if (coin4.Top >= 500)
-            {
-                x = r.Next(0, 400);
-
-                coin4.Location = new Point(x, 0);
-            }
-            else
-            {
-                coin4.Top += speed;
-            }
-
         }
         void over()
         {
@@ -181,12 +153,12 @@ namespace JetFighter
             if (e.KeyCode == Keys.Left)
             {
                 if (Jet.Left > 0)
-                Jet.Left += -8;
+                    Jet.Left += -8;
             }
             if (e.KeyCode == Keys.Right)
             {
                 if (Jet.Right < 380)
-                Jet.Left += 8;
+                    Jet.Left += 8;
             }
             if (e.KeyCode == Keys.Up)
             {
@@ -198,6 +170,14 @@ namespace JetFighter
                 if (gamespeed > 0)
                 { gamespeed--; }
             }
+            coinscollection();
+        }
+
+        private void TimerTick(object sender, EventArgs e)
+        {
+            Building(gamespeed);
+            over();
+            MoveCoin(gamespeed);
             coinscollection();
         }
     }

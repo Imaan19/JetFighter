@@ -73,7 +73,7 @@
             Building1.TabIndex = 0;
             Building1.TabStop = false;
             Building1.KeyDown += Form1_KeyDown;
-            Building1.Click += Jet_Click;
+            Building1.Click += timer1_Tick;
             // 
             // Building2
             // 
@@ -174,6 +174,7 @@
             // 
             timer1.Enabled = true;
             timer1.Interval = 10;
+            timer1.Tick += TimerTick;
             // 
             // Form1
             // 
