@@ -116,7 +116,7 @@ namespace JetFighter
             if (Jet.Bounds.IntersectsWith(coin1.Bounds))
             {
                 collectedcoin++;
-                coin1.Text = "Coins=" + collectedcoin.ToString();
+                label1.Text = "Coins=" + collectedcoin.ToString();
                 x = r.Next(50, 300);
 
                 coin1.Location = new Point(x, 0);
@@ -124,7 +124,7 @@ namespace JetFighter
             if (Jet.Bounds.IntersectsWith(coin2.Bounds))
             {
                 collectedcoin++;
-                coin1.Text = "Coins=" + collectedcoin.ToString();
+                label1.Text = "Coins=" + collectedcoin.ToString();
                 x = r.Next(50, 300);
 
                 coin2.Location = new Point(x, 0);
@@ -132,7 +132,7 @@ namespace JetFighter
             if (Jet.Bounds.IntersectsWith(coin3.Bounds))
             {
                 collectedcoin++;
-                coin1.Text = "Coins=" + collectedcoin.ToString();
+                label1.Text = "Coins=" + collectedcoin.ToString();
                 x = r.Next(50, 300);
 
                 coin3.Location = new Point(x, 0);
@@ -140,7 +140,7 @@ namespace JetFighter
             if (Jet.Bounds.IntersectsWith(coin4.Bounds))
             {
                 collectedcoin++;
-                coin1.Text = "Coins=" + collectedcoin.ToString();
+                label1.Text = "Coins=" + collectedcoin.ToString();
                 x = r.Next(50, 300);
 
                 coin4.Location = new Point(x, 0);
